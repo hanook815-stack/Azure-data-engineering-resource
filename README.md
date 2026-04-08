@@ -6,7 +6,6 @@
           and then click on Advanced and open the dataset copy and click on parameters name it as Load_Flag
           then go to connection and copy relative URL and clikc on dynamic contect paste it in box hanook815-stack/Azure-data-engineering-resource/refs/heads/main/@{dataset().load_flg}
           and under source provide load_flag value as SalesData.csv
-
           Then click on Sink data set and create connection tha we need to store the data ( Azure SQL database)                                                                             
    -- create Azure sql database
    -- create ADLS2 to store the data in the form of Bronze , Silver and Gold   
