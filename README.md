@@ -27,5 +27,49 @@ Product_Name VARCHAR(200))
 
 select * from source_cars_data
 
+create table watermark_table
+( 
+  last_load VARCHAR(2000)
+)
+
+select * from watermark_table
+
+select min(Date_ID) from dbo.source_cars_data
+
+INSERT INTO watermark_table VALUES ('DT00000')
+
+select * from dbo.source_cars_data where Date_ID > 'DT00000'
+
+select * from dbo.source_cars_data
+
+Store Procedure
+===========
+
+CREATE PROCEDURE UpdateWaterMarktable
+@lastload VARCHAR(2000)
+AS
+BEGIN
+   -- Start the transaction
+    BEGIN TRANSACTION;
+    -- update the incremental column in the table
+    UPDATE watermark_table
+    SET last_load = @lastload
+    COMMIT TRANSACTION;
+    END;
+
+Below are the pipeline setting in ADF
+=============================
+
+    last_load -- > setting --> provide table name as watermark_table and provide the Query select * from watermark_table
+    current_load --> setting > provide table name as source_cars_date and provide Query select * from watermark_table
+
+The below Query we need to set it under Copy_increment_date
+=========================================
+select * from source_cars_data where Date_ID > '@{activity('last_load').output.value[0].last_load}' AND Date_ID <= '@{activity('current_load').output.value[0].maxdate}'
+
+and provide the table name as well source_cars_data
+
+@activity('current_load').output.value[0].maxdate --- This valu we need to set it under watermark_update
 
 
+Create Databricks 
