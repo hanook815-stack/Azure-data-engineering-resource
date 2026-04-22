@@ -82,9 +82,18 @@ Delta live table -- it is also like ETL flow
 we will be creating Unity Metastore --  when we create unity metastore only then we can create compute because we get different kind of cluster when we enable unity catalog.
 first we need to create Unity metastore then we will attach our databricks workspace to unity metastore.
 
-click on workspace on top of the right -- > under this tab we can see manage account button
-how we will get manage account , we need to provide ENTRA ID (Azure-->Home-->EntraID-->users-->click on your name -->copy Hastag ID)
-copy entraid and go to accounts.azuredatabricks.net --> then clikc on continue with microsoft Entra id and then pase Entra ID which is copied from Azure -- > once open console page
-Users management -- > add user --> put email account and asign the role as admin then we will see manage account in Microsoft Azure Databricks
+click on workspace on top of the right -- > under this tab we can see manage account button.
+how we will get manage account , we need to provide ENTRA ID in admin databricks(accounts.azuredatabricks.net). (Azure-->Home-->EntraID-->users-->click on your name -->copy Hastag ID)
+copy entraid and go to accounts.azuredatabricks.net --> then click on continue with microsoft Entra id and then paste Entra ID which is copied from Azure -- > once open console page
+Users management -- > add user --> put email account and asign the role as admin ,then we will see manage account in Microsoft Azure Databricks
 
-to create unity metastore (accounts.azuredatabricks.net) -->  catalog --> click on create metastore ( access connector -- > go to resource group and search  access connector for databricks -- then create ( this mainly for managing data ADLS and Databricks) -- Then add access connector using IAM to the ADLS ( ADLS --> IAM --> Add role assignment) --> search and select storage blob contributor -> clcik next -- > select manage identities then select memebers and attach access connector then review and create --> once create copy resource ID and paste unser access connector in databricks
+to create unity metastore (accounts.azuredatabricks.net) -->  catalog --> click on create metastore ( first we need to create access connector -- > go to resource group and search  access connector for databricks -- then create )
+
+**create access connector**
+
+<img width="393" height="409" alt="image" src="https://github.com/user-attachments/assets/02455c76-631b-498e-a1ce-c18e1977c41e" />
+
+( this mainly for managing data ADLS and Databricks) -- Then add access connector using IAM to the ADLS ( ADLS --> IAM --> Add role assignment) --> search and select storage blob contributor -> clcik next -- > select manage identities then select memebers and attach access connector then review and create --> once create copy resource ID and paste unser access connector in databricks
+
+<img width="1358" height="583" alt="image" src="https://github.com/user-attachments/assets/637abd36-22f1-4aa7-bad7-586b96a76b48" />
+
