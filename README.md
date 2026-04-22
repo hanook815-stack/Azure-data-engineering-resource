@@ -72,4 +72,19 @@ and provide the table name as well source_cars_data
 @activity('current_load').output.value[0].maxdate --- This valu we need to set it under watermark_update
 
 
-Create Databricks 
+Create Databricks -- and launch databricks
+Workspace -- top of the hirarchy we can store the notbooks.
+catalog -- manage databse,shemas , tables and volumes (Semi-structure data) etc
+workflow -- ETL framework ,same as ADF
+compute -- we can create clusters
+Delta live table -- it is also like ETL flow
+
+we will be creating Unity Metastore --  when we create unity metastore only then we can create compute because we get different kind of cluster when we enable unity catalog.
+first we need to create Unity metastore then we will attach our databricks workspace to unity metastore.
+
+click on workspace on top of the right -- > under this tab we can see manage account button
+how we will get manage account , we need to provide ENTRA ID (Azure-->Home-->EntraID-->users-->click on your name -->copy Hastag ID)
+copy entraid and go to accounts.azuredatabricks.net --> then clikc on continue with microsoft Entra id and then pase Entra ID which is copied from Azure -- > once open console page
+Users management -- > add user --> put email account and asign the role as admin then we will see manage account in Microsoft Azure Databricks
+
+to create unity metastore (accounts.azuredatabricks.net) -->  catalog --> click on create metastore ( access connector -- > go to resource group and search  access connector for databricks -- then create ( this mainly for managing data ADLS and Databricks) -- Then add access connector using IAM to the ADLS ( ADLS --> IAM --> Add role assignment) --> search and select storage blob contributor -> clcik next -- > select manage identities then select memebers and attach access connector then review and create --> once create copy resource ID and paste unser access connector in databricks
