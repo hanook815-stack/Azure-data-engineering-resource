@@ -93,7 +93,11 @@ to create unity metastore (accounts.azuredatabricks.net) -->  catalog --> click 
 
 <img width="393" height="409" alt="image" src="https://github.com/user-attachments/assets/02455c76-631b-498e-a1ce-c18e1977c41e" />
 
-( this mainly for managing data ADLS and Databricks) -- Then add access connector using IAM to the ADLS ( ADLS --> IAM --> Add role assignment) --> search and select storage blob contributor -> clcik next -- > select manage identities then select memebers and attach access connector then review and create --> once create copy resource ID and paste unser access connector in databricks
+( this mainly for managing data ADLS and Databricks) -- Then add access connector using IAM to the ADLS ( ADLS --> IAM --> Add role assignment) --> search and select storage blob contributor -> clcik next -- > select manage identities then select memebers and attach access connector then review and create --> once create copy resource ID and paste user access connector in databricks
 
 <img width="1358" height="583" alt="image" src="https://github.com/user-attachments/assets/637abd36-22f1-4aa7-bad7-586b96a76b48" />
+
+once we create metasore in accounts.azuredatabricks.net , now i want attache workspace ,click on workspace and select workspace and attach newly created metstore to workspace --> for this simpl go to catalog --> select once catalog and open --> then click on workspace --> click on assign to workspace --> then select any workspace and click on assign --> click on enable.( we can assign multiple worspaces to one unity metastore)  
+
+<img width="916" height="469" alt="image" src="https://github.com/user-attachments/assets/b5476f65-4912-40e2-a0d4-d591e2d4b74c" />
 
